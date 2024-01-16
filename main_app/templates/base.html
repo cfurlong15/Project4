@@ -13,11 +13,11 @@
     <nav>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Project Manager</a></li>
+          <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Project Manager</a></li>
         </ul>
         <ul class="right">
-          <li><a href="/">Home</a></li>
-          <li><a href="/projects"> My Lists</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'index' %}"> My Lists</a></li>
         </ul>
       </div>
     </nav>
