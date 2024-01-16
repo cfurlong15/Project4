@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -15,3 +16,6 @@ def projects_index(request):
     return render(request, 'projects/index.html', {
         'projects': projects
     })
+
+# def logout_view(request):
+#     logout(request)
