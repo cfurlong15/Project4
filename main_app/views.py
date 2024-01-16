@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.contrib.auth import logout
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
@@ -16,6 +17,25 @@ def projects_index(request):
     return render(request, 'projects/index.html', {
         'projects': projects
     })
+
+def signup(request):
+    error_message = ''
+    if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            # This adds the user to the database
+            user = form.save()
+            # This is how we log a user in
+            login(request, user)
+            return redirect('index')
+        else:
+            error_message = 'Invalid sign up - try again'
+            # A bad POST or GET request, so render signup.html with empty form
+    form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'registration/signup.html', context)
 
 # def logout_view(request):
 #     logout(request)
