@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>My Projects</h1>
+
+{% for project in projects %}
+    <div class="card">
+        <div class="card-content">
+            <h3>{{ project.name }}</h3>
+            <p>Description: {{ project.description }}</p>
+            <p>Start Date: {{ project.start_date }}</p>
+            <p>End Date: {{ project.end_date }}</p>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
