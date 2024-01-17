@@ -1,18 +1,17 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <h1>My Projects</h1>
 
 {% for project in projects %}
-    <div class="card">
-        <div class="card-content">
-            <h3>{{ project.name }}</h3>
-            <p>Status: {{ project.get_status_display }}</p>
-            <p>Description: {{ project.description }}</p>
-            <p>Start Date: {{ project.start_date }}</p>
-            <p>End Date: {{ project.end_date }}</p>
-        </div>
+<div class="card">
+    <div class="card-content">
+      <h3>{{ project.name }}</h3>
+      <a href="{% url 'detail' project.id %}">View Project Details</a>
+      <p>Status: {{ project.get_status_display }}</p>
+      <p>Description: {{ project.description }}</p>
+      <p>Start Date: {{ project.start_date }}</p>
+      <p>End Date: {{ project.end_date }}</p>
     </div>
-{% endfor %}
-
+</div>
+{% endfor %} 
 {% endblock %}
