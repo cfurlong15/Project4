@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ project.name }}</h1>
+
+<div class="card">
+  <div class="card-content">
+    <p>Status: {{ project.get_status_display }}</p>
+      <p>Description: {{ project.description }}</p>
+      <p>Start Date: {{ project.start_date }}</p>
+      <p>End Date: {{ project.end_date }}</p>
+  </div>
+</div>
+
+{% endblock %}

@@ -21,6 +21,13 @@ def projects_index(request):
         'projects': projects
     })
 
+def projects_detail(request, project_id):
+    project = Project.objects.get(id=project_id)
+    return render(request, 'projects/detail.html', {
+        'project': project
+    })
+
+
 # def signup(request):
 #     error_message = ''
 #     if request.method == 'POST':
