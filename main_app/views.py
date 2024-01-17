@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm
+from .models import Project
 # from .forms import ProfileForm
 
 # Create your views here.
@@ -15,7 +16,10 @@ def home(request):
     return render(request, 'home.html')
 
 def projects_index(request):
-    return render(request, 'projects/index.html')
+    projects = Project.objects.all()
+    return render(request, 'projects/index.html', {
+        'projects': projects
+    })
 
 # def signup(request):
 #     error_message = ''
