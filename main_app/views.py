@@ -17,7 +17,8 @@ def home(request):
     return render(request, 'home.html')
 
 def projects_index(request):
-    projects = Project.objects.all()
+    projects = Project.objects.filter(user=request.user)
+    # projects = Project.objects.all()
     return render(request, 'projects/index.html', {
         'projects': projects
     })
