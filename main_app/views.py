@@ -3,7 +3,7 @@ from django.contrib.auth import login
 # from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm
 from .models import Project
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # from .forms import ProfileForm
 
 # Create your views here.
@@ -83,3 +83,11 @@ class ProjectCreate(CreateView):
         form.instance.user = self.request.user  # form.instance is the cat
     # Let the CreateView do its job as usual
         return super().form_valid(form)
+
+class ProjectUpdate(UpdateView):
+    model = Project
+    fields = ['name', 'description', 'start_date', 'end_date', 'status']
+
+class ProjectDelete(DeleteView):
+    model = Project
+    success_url = '/projects'

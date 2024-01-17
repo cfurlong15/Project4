@@ -10,6 +10,10 @@
       <p>Start Date: {{ project.start_date }}</p>
       <p>End Date: {{ project.end_date }}</p>
   </div>
+  <div class="card-action">
+    <a href="{% url 'projects_update' project.id %}">Edit Project Details</a>
+    <a href="{% url 'projects_delete' project.id %}">Delete Project</a>
+  </div>
 </div>
 
 {% endblock %}
