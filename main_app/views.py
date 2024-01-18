@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib.auth import login
 # from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, TaskForm
-from .models import Project
+from .models import Project, Task
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # from .forms import ProfileForm
 
@@ -101,3 +102,11 @@ class ProjectUpdate(UpdateView):
 class ProjectDelete(DeleteView):
     model = Project
     success_url = '/projects'
+
+class TaskUpdate(UpdateView):
+    model = Task
+    fields = ['description', 'start_date', 'end_date', 'status']
+
+    def get_success_url(self):
+        project_id = self.kwargs.get('project_id')
+        return reverse('detail', kwargs={'project_id': project_id})
