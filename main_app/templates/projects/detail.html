@@ -1,19 +1,37 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <h1>{{ project.name }}</h1>
 
 <div class="card">
   <div class="card-content">
     <p>Status: {{ project.get_status_display }}</p>
-      <p>Description: {{ project.description }}</p>
-      <p>Start Date: {{ project.start_date }}</p>
-      <p>End Date: {{ project.end_date }}</p>
+    <p>Description: {{ project.description }}</p>
+    <p>Start Date: {{ project.start_date }}</p>
+    <p>Due By: {{ project.end_date }}</p>
   </div>
   <div class="card-action">
     <a href="{% url 'projects_update' project.id %}">Edit Project Details</a>
     <a href="{% url 'projects_delete' project.id %}">Delete Project</a>
   </div>
+</div>
+<div class="col s6">
+  <table class="striped">
+    {% for task in project.task_set.all %}
+    <tr>
+      <td>{{ task.description }}</td>
+      <td>Status: {{ task.get_status_display }}</td>
+      <td>Start Date: {{ task.start_date }}</td>
+      <td>Due By: {{ task.end_date }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+<div>
+    <form action="{% url 'add_task' project.id %}" method="POST">
+        {% csrf_token %}
+        {{ task_form.as_p }}
+        <input type="submit" class="btn" value="Add Task">
+    </form>
 </div>
 
 {% endblock %}
