@@ -48,3 +48,17 @@ class Project(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'project_id': self.id})
 
+
+class Task(models.Model):
+    description = models.TextField(max_length=500)
+    start_date = models.DateField('start date')
+    end_date = models.DateField('end date')
+    status = models.CharField(
+        max_length=11,
+        choices=STATUS,
+        default=STATUS[0][0]
+    )
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.description
