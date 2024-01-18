@@ -14,6 +14,7 @@
     <a href="{% url 'projects_delete' project.id %}">Delete Project</a>
   </div>
 </div>
+<h2>Your Tasks</h2>
 <div class="col s6">
   <table class="striped">
     {% for task in project.task_set.all %}
@@ -22,6 +23,10 @@
       <td>Status: {{ task.get_status_display }}</td>
       <td>Start Date: {{ task.start_date }}</td>
       <td>Due By: {{ task.end_date }}</td>
+      <form action="">
+      <td><a href="{% url 'tasks_update' project.id task.id %}">Edit</a></td>
+      </form>
+
     </tr>
     {% endfor %}
   </table>
