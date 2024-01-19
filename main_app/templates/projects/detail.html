@@ -25,6 +25,7 @@
       <td>Due By: {{ task.end_date }}</td>
       <form action="">
       <td><a href="{% url 'tasks_update' project.id task.id %}">Edit</a></td>
+      <td><a href="{% url 'tasks_delete' project.id task.id %}">Delete</a></td>
       </form>
 
     </tr>

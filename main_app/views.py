@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth import login
 # from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, TaskForm
@@ -109,4 +109,17 @@ class TaskUpdate(UpdateView):
 
     def get_success_url(self):
         project_id = self.kwargs.get('project_id')
+        print(project_id, 'print project id')
         return reverse('detail', kwargs={'project_id': project_id})
+
+def tasks_delete(request, project_id, task_id):
+    project = get_object_or_404(Project, pk=project_id)
+    task = get_object_or_404(Task, pk=task_id, project=project)
+
+    if request.method == 'POST':
+        task.delete()
+        return redirect('detail', project_id=project_id)
+    
+    return render(request, 'main_app/task_confirm_delete.html', {'project': project, 'task': task})
+    
+    
