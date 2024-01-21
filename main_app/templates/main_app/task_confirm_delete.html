@@ -9,5 +9,5 @@
     {% csrf_token %}
     <input type="submit" value="Yes" class="btn">
   </form>
-  <a href="{% url 'detail' project.id %}">Cancel</a>
+  <a href="{% url 'detail' project.id %}" class="btn">Cancel</a>
 {% endblock %}

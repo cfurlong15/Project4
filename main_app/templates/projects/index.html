@@ -2,13 +2,13 @@
 
 <h1>My Projects</h1>
 
-<a href="{% url 'projects_create' %}">Create Project</a>
+<a href="{% url 'projects_create' %}" class="btn green waves-effect waves-light hoverable">Create Project</a>
 
 {% for project in projects %}
-<div class="card">
+<div class="card grey darken-3">
   <div class="card-content">
     <h3>{{ project.name }}</h3>
-    <a href="{% url 'detail' project.id %}">View Project Details</a>
+    <a href="{% url 'detail' project.id %}" class="btn-small cyan accent-4 waves-effect waves-dark hoverable z-depth-5">View Project Details</a>
     <p>Status: {{ project.get_status_display }}</p>
     <p>Description: {{ project.description }}</p>
     <p>Start Date: {{ project.start_date }}</p>
