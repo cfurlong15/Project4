@@ -2,6 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    border-color: 2rem solid red;
   }
   
   main {
@@ -9,6 +10,10 @@ body {
   }
   
   footer.page-footer {
-    padding-top: 0;
+    padding-top: 3rem;
     text-align: right;
+  }
+
+  .btn {
+    border-radius: 2px;
   }
