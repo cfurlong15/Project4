@@ -2,7 +2,7 @@
 
 <h1>{{ project.name }}</h1>
 
-<div class="card">
+<div class="card grey darken-3">
   <div class="card-content">
     <p>Status: {{ project.get_status_display }}</p>
     <p>Description: {{ project.description }}</p>
@@ -24,14 +24,14 @@
       <td>Start Date: {{ task.start_date }}</td>
       <td>Due By: {{ task.end_date }}</td>
       <form action="">
-      <td><a href="{% url 'tasks_update' project.id task.id %}">Edit</a></td>
-      <td><a href="{% url 'tasks_delete' project.id task.id %}">Delete</a></td>
+      <td><a href="{% url 'tasks_update' project.id task.id %}" class="btn-floating btn-small green accent-3 hoverable"><i class="material-icons">edit</i></a></td>
+      <td><a href="{% url 'tasks_delete' project.id task.id %}" class="btn-floating btn-small red hoverable"><i class="material-icons">delete</i></a></td>
       </form>
-
     </tr>
     {% endfor %}
   </table>
 </div>
+<hr>
 <div>
     <form action="{% url 'add_task' project.id %}" method="POST">
         {% csrf_token %}
