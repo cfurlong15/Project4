@@ -1,18 +1,29 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <h1>My Projects</h1>
 
-{% for project in projects %}
-    <div class="card">
-        <div class="card-content">
-            <h3>{{ project.name }}</h3>
-            <p>Status: {{ project.get_status_display }}</p>
-            <p>Description: {{ project.description }}</p>
-            <p>Start Date: {{ project.start_date }}</p>
-            <p>End Date: {{ project.end_date }}</p>
-        </div>
-    </div>
-{% endfor %}
+<a href="{% url 'projects_create' %}" class="btn green waves-effect waves-light hoverable">Create Project<i class="material-icons left">add_circle</i></a>
 
+{% for project in projects %}
+<div class="card grey darken-3">
+  <div class="card-content">
+    <h3>{{ project.name }}</h3>
+    <a href="{% url 'detail' project.id %}" class="btn-small cyan accent-4 waves-effect waves-dark hoverable z-depth-5">View Project Details</a>
+    <!-- <div class="section"> -->
+    <div class="section">
+    <p class="m4">Status: {{ project.get_status_display }}</p>
+    </div>
+    <div class="section">
+    <p class="m4">Description: {{ project.description }}</p>
+</div>
+<div class="section">
+    <p class="m4">Start Date: {{ project.start_date }}</p>
+    </div>
+    <div class="section">
+    <p class="m4">Due By: {{ project.end_date }}</p>
+    </div>
+    <!-- </div> -->
+  </div>
+</div>
+{% endfor %} 
 {% endblock %}

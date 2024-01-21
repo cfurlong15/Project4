@@ -11,10 +11,18 @@
       type="text/css"
       href="{% static 'css/style.css' %}"
     />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
-  <body>
+  <body class="white-text grey darken-4">
     <header class="navbar-fixed">
-      <nav>
+      <nav class="blue darken-4">
         <div class="nav-wrapper">
           <ul>
             <li>
@@ -29,7 +37,7 @@
             <li><a href="{% url 'index' %}">My Projects</a></li>
             <form action="{% url 'logout' %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn">Log Out</button>
+              <button type="submit" class="btn-small">Log Out</button>
             </form>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
@@ -40,7 +48,7 @@
       </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="page-footer">
+    <footer class="page-footer blue darken-4">
       <div class="right">
         All Rights Reserved, &copy; 2024 Project Manager &nbsp;
       </div>
