@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body class="white-text grey darken-4">
@@ -36,7 +37,7 @@
             <li><a href="{% url 'index' %}">My Projects</a></li>
             <form action="{% url 'logout' %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn">Log Out</button>
+              <button type="submit" class="btn-small">Log Out</button>
             </form>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
