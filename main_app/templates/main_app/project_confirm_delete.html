@@ -3,11 +3,11 @@
 {% block content %}
   <h1>Delete Project</h1>
 
-  <h4>Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?</h4>
+  <h4>Are you sure you want to delete <span">{{ object.name }}</span>?</h4>
 
   <form action="" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Yes" class="btn">
-    <a href="{% url 'detail' project.id %}" class="btn">Cancel</a>
+    <input type="submit" value="Yes" class="btn-small cyan accent-4 waves-effect waves-dark hoverable z-depth-5">
+    <a href="{% url 'detail' project.id %}" class="btn-small cyan accent-4 waves-effect waves-dark hoverable z-depth-5">Cancel</a>
   </form>
 {% endblock %}

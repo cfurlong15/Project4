@@ -21,6 +21,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body class="white-text grey darken-4">
+    <div class="wrapper">
+    <div class="custom-background">
     <header class="navbar-fixed">
       <nav class="blue darken-4">
         <div class="nav-wrapper">
@@ -37,7 +39,7 @@
             <li><a href="{% url 'index' %}">My Projects</a></li>
             <form action="{% url 'logout' %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn-small">Log Out</button>
+              <button type="submit" class="btn-small cyan accent-4 waves-effect waves-dark hoverable z-depth-5">Log Out</button>
             </form>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
@@ -48,6 +50,8 @@
       </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
+</div>
+</div>
     <footer class="page-footer blue darken-4">
       <div class="right">
         All Rights Reserved, &copy; 2024 Project Manager &nbsp;

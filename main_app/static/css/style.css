@@ -1,8 +1,12 @@
 body {
+    margin: 0;
+    padding: 0;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    border-color: 2rem solid red;
+  }
+  .wrapper {
+    flex: 1
   }
   
   main {
@@ -11,8 +15,14 @@ body {
   
   footer.page-footer {
     padding-top: 1rem;
-    padding-top: 3rem;
     text-align: right;
   }
 
+  .custom-background {
+    background: linear-gradient(to bottom, #01084e, #486374);
+    min-height: 100vh;
+  }
  
+  /* .custom-rounded {
+    border-radius: 10px;
+  } */
