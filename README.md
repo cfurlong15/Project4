@@ -26,7 +26,7 @@ From here, create some very basic project details. Once you've created a project
 
 To access TaskTrackr, click the link below:
 
-TaskTrackr: (link)
+TaskTrackr: https://project-management-app-6d1cc6b1809f.herokuapp.com/ 
 
 Trello Board: https://trello.com/b/X2qFvzxt/to-do-list 
 
