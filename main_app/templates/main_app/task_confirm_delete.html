@@ -7,7 +7,7 @@
 
   <form action="{% url 'tasks_delete' project.id task.id %}" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Yes" class="btn">
+    <input type="submit" value="Yes" class="btn cyan accent-4 waves-effect waves-dark hoverable z-depth-5">
+    <a href="{% url 'detail' project.id %}" class="btn cyan accent-4 waves-effect waves-dark hoverable z-depth-5">Cancel</a>
   </form>
-  <a href="{% url 'detail' project.id %}" class="btn">Cancel</a>
 {% endblock %}

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Project Manager</title>
+    <title>TaskTrackr</title>
     <link
       rel="stylesheet"
       type="text/css"
@@ -19,15 +19,20 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
   </head>
   <body class="white-text grey darken-4">
+    <div class="wrapper">
+    <div class="custom-background">
     <header class="navbar-fixed">
       <nav class="blue darken-4">
         <div class="nav-wrapper">
           <ul>
             <li>
               <a href="{% url 'home' %}" class="left brand-logo"
-                >&nbsp;&nbsp;Project Manager</a
+                >&nbsp;&nbsp;TaskTrackr</a
               >
             </li>
           </ul>
@@ -35,10 +40,12 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">My Projects</a></li>
+            <li>
             <form action="{% url 'logout' %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn-small">Log Out</button>
+              <button type="submit" class="btn-small cyan accent-4 waves-effect waves-dark hoverable z-depth-5">Log Out</button>
             </form>
+            </li>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
@@ -48,9 +55,11 @@
       </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
+</div>
+</div>
     <footer class="page-footer blue darken-4">
       <div class="right">
-        All Rights Reserved, &copy; 2024 Project Manager &nbsp;
+        All Rights Reserved, &copy; 2024 TaskTrackr &nbsp;
       </div>
     </footer>
   </body>

@@ -1,8 +1,13 @@
 body {
+    margin: 0;
+    padding: 0;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    border-color: 2rem solid red;
+    font-family: Nunito;
+  }
+  .wrapper {
+    flex: 1
   }
   
   main {
@@ -10,10 +15,34 @@ body {
   }
   
   footer.page-footer {
-    padding-top: 3rem;
+    padding-top: 1rem;
     text-align: right;
   }
 
-  .btn {
-    border-radius: 2px;
+  .custom-background {
+    background: linear-gradient(to bottom, #01084e, #486374);
+    min-height: 100vh;
+  }
+  .card-background {
+    background: linear-gradient(to bottom, #131c79, #223e4f);
+  }
+
+  .intro {
+    font-size: large;
+  }
+ 
+  .detail {
+    font-size: medium;
+  }
+
+  .detail-name {
+    font-weight: 800;
+  }
+
+  .table-title {
+    font-size: large;
+  }
+
+  .task-details {
+    font-size: medium;
   }
