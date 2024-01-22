@@ -23,6 +23,8 @@ body {
     min-height: 100vh;
   }
  
-  /* .custom-rounded {
-    border-radius: 10px;
-  } */
+.not-started { background-color: red; }
+.in-progress { background-color: blue; }
+.reviewing { background-color: yellow; }
+.on-hold { background-color: orange; }
+.completed { background-color: green; }

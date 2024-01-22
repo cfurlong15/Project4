@@ -37,10 +37,12 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">My Projects</a></li>
+            <li>
             <form action="{% url 'logout' %}" method="POST">
               {% csrf_token %}
               <button type="submit" class="btn-small cyan accent-4 waves-effect waves-dark hoverable z-depth-5">Log Out</button>
             </form>
+            </li>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
