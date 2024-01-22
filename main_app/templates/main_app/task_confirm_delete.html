@@ -8,6 +8,7 @@
   <form action="{% url 'tasks_delete' project.id task.id %}" method="POST">
     {% csrf_token %}
     <input type="submit" value="Yes" class="btn">
+    <a href="{% url 'detail' project.id %}" class="btn">Cancel</a>
   </form>
-  <a href="{% url 'detail' project.id %}" class="btn">Cancel</a>
+  
 {% endblock %}

@@ -16,28 +16,74 @@
 </div>
 <h2>Your Tasks</h2>
 <div class="col s6">
-  <table class="striped">
+  <table class="centered highlight">
+    <thead>
+      <tr>
+        <td class="center-align">Task</td>
+        <td class="center-align">Status</td>
+        <td class="center-align">Start Date</td>
+        <td class="center-align">Due By</td>
+      </tr>
+    </thead>
     {% for task in project.task_set.all %}
-    <tr>
-      <td>{{ task.description }}</td>
-      <td>Status: {{ task.get_status_display }}</td>
-      <td>Start Date: {{ task.start_date }}</td>
-      <td>Due By: {{ task.end_date }}</td>
-      <form action="">
-      <td><a href="{% url 'tasks_update' project.id task.id %}" class="btn-floating btn-small green accent-3 hoverable"><i class="material-icons">edit</i></a></td>
-      <td><a href="{% url 'tasks_delete' project.id task.id %}" class="btn-floating btn-small red hoverable"><i class="material-icons">delete</i></a></td>
-      </form>
-    </tr>
+    <tbody>
+      <tr>
+        <td>{{ task.description }}</td>
+        <td>{{ task.get_status_display }}</td>
+        <td>{{ task.start_date }}</td>
+        <td>{{ task.end_date }}</td>
+        <form action="">
+          <td>
+            <a
+              href="{% url 'tasks_update' project.id task.id %}"
+              class="btn-floating btn-small green accent-3 hoverable"
+              ><i class="material-icons">edit</i></a
+            >
+          </td>
+          <td>
+            <a
+              href="{% url 'tasks_delete' project.id task.id %}"
+              class="btn-floating btn-small red hoverable"
+              ><i class="material-icons">delete</i></a
+            >
+          </td>
+        </form>
+      </tr>
+    </tbody>
     {% endfor %}
   </table>
 </div>
-<hr>
-<div>
-    <form action="{% url 'add_task' project.id %}" method="POST">
-        {% csrf_token %}
-        {{ task_form.as_p }}
-        <input type="submit" class="btn" value="Add Task">
-    </form>
+<div class="section">
+  <hr />
 </div>
+<div class="section">
+  <h2>Add Task</h2>
+  <form action="{% url 'add_task' project.id %}" method="POST" class="black-text">
+    {% csrf_token %} {{ task_form.as_table }}
+    <input type="submit" class="btn" value="Add Task" />
+  </form>
+</div>
+<script>
+  const startDateEl = document.getElementById("id_start_date");
+  // M is Materialize's global variable
+  M.Datepicker.init(startDateEl, {
+    format: "yyyy-mm-dd",
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true,
+  });
+
+  const endDateEl = document.getElementById("id_end_date");
+  // M is Materialize's global variable
+  M.Datepicker.init(endDateEl, {
+    format: "yyyy-mm-dd",
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true,
+  });
+
+  const selectEl = document.getElementById('id_status');
+  M.FormSelect.init(selectEl);
+</script>
 
 {% endblock %}
