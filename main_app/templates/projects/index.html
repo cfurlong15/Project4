@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>My Projects</h1>
+<h1>{{ user.first_name }}'s Projects</h1>
 
 <a href="{% url 'projects_create' %}" class="btn green waves-effect waves-light hoverable">Create Project<i class="material-icons left">add_circle</i></a>
 
