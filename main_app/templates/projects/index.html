@@ -5,22 +5,24 @@
 <a href="{% url 'projects_create' %}" class="btn green waves-effect waves-light hoverable">Create Project<i class="material-icons left">add_circle</i></a>
 
 {% for project in projects %}
-<div class="card grey darken-3">
+<div class="card blue-grey darken-2">
+    <div class="card-background">
   <div class="card-content">
     <h3>{{ project.name }}</h3>
     <a href="{% url 'detail' project.id %}" class="btn-small cyan accent-4 waves-effect waves-dark hoverable z-depth-5">View Project Details</a>
     <div class="section">
-    <p class="m4">Status: {{ project.get_status_display }}</p>
+    <p class="detail"><span class="detail-name">Status:</span> {{ project.get_status_display }}</p>
     </div>
     <div class="section">
-    <p class="m4">Description: {{ project.description }}</p>
+    <p class="detail"><span class="detail-name">Description:</span> {{ project.description }}</p>
 </div>
 <div class="section">
-    <p class="m4">Start Date: {{ project.start_date }}</p>
+    <p class="detail"><span class="detail-name">Start Date:</span> {{ project.start_date }}</p>
     </div>
     <div class="section">
-    <p class="m4">Due By: {{ project.end_date }}</p>
+    <p class="detail"><span class="detail-name">Due By:</span> {{ project.end_date }}</p>
     </div>
+  </div>
   </div>
 </div>
 {% endfor %} 

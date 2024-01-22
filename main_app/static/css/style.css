@@ -4,6 +4,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    font-family: Nunito;
   }
   .wrapper {
     flex: 1
@@ -22,9 +23,26 @@ body {
     background: linear-gradient(to bottom, #01084e, #486374);
     min-height: 100vh;
   }
+  .card-background {
+    background: linear-gradient(to bottom, #131c79, #223e4f);
+  }
+
+  .intro {
+    font-size: large;
+  }
  
-.not-started { background-color: red; }
-.in-progress { background-color: blue; }
-.reviewing { background-color: yellow; }
-.on-hold { background-color: orange; }
-.completed { background-color: green; }
+  .detail {
+    font-size: medium;
+  }
+
+  .detail-name {
+    font-weight: 800;
+  }
+
+  .table-title {
+    font-size: large;
+  }
+
+  .task-details {
+    font-size: medium;
+  }

@@ -3,39 +3,41 @@
 <h1>{{ project.name }}</h1>
 
 <div class="card grey darken-3 z-depth-5">
+    <div class="card-background">
   <div class="card-content">
     <div class="section">
-    <p>Status: {{ project.get_status_display }}</p>
+    <p class="detail"><span class="detail-name">Status:</span> {{ project.get_status_display }}</p>
     </div>
     <div class="section">
-    <p>Description: {{ project.description }}</p>
+    <p class="detail"><span class="detail-name">Description:</span> {{ project.description }}</p>
     </div>
     <div class="section">
-    <p>Start Date: {{ project.start_date }}</p>
+    <p class="detail"><span class="detail-name">Start Date:</span> {{ project.start_date }}</p>
     </div>
     <div class="section">
-    <p>Due By: {{ project.end_date }}</p>
+    <p class="detail"><span class="detail-name">Due By:</span> {{ project.end_date }}</p>
     </div>
   </div>
   <div class="card-action">
     <a href="{% url 'projects_update' project.id %}" class="btn green accent-3 waves-effect waves-dark hoverable z-depth-5"><i class="material-icons right">edit</i>Edit Project Details</a>
     <a href="{% url 'projects_delete' project.id %}" class="btn red waves-effect waves-dark hoverable z-depth-5"><i class="material-icons right">delete</i>Delete Project</a>
   </div>
+  </div>
 </div>
 <h2>Your Tasks</h2>
 <div class="col s6">
   <table class="centered highlight">
     <thead>
-      <tr>
-        <td class="center-align">Task</td>
-        <td class="center-align">Status</td>
-        <td class="center-align">Start Date</td>
-        <td class="center-align">Due By</td>
+      <tr class="z-depth-5">
+        <td class="center-align"><span class="table-title">Task</span></td>
+        <td class="center-align"><span class="table-title">Status</span></td>
+        <td class="center-align"><span class="table-title">Start Date</span></td>
+        <td class="center-align"><span class="table-title">Due By<span class="table-title"></span></td>
       </tr>
     </thead>
     {% for task in project.task_set.all %}
     <tbody>
-      <tr>
+      <tr class="task-details">
         <td>{{ task.description }}</td>
         <td>{{ task.get_status_display }}</td>
         <td>{{ task.start_date }}</td>

@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Home Page</h1>
+<h1 class="center-align z-depth-1">TaskTrackr</h1>
+<div class="section">
+    <p class="z-depth-1"><span class="intro">Welcome to TaskTrackr -- your go-to solution for streamlined project organization and collaboration. Simply log in or sign up to access a suite of powerful tools that allow you to create, manage, and edit projects with ease. Capture project details, set crucial dates, and keep tabs on project status all in one central hub. Stay in control, stay on track - with TaskTrackr. Your projects are in capable hands.</span></p>
+</div>
+<div class="">
+        {% if user.is_authenticated %}
+        <a href="{% url 'index' %}" class="btn cyan accent-4 waves-effect waves-dark hoverable z-depth-5">My Projects</a>
+        {% else %}
+        <div class="section">
+        <a href="{% url 'signup' %}" class="btn cyan accent-4 waves-effect waves-dark hoverable z-depth-5">Sign Up</a>
+        </div>
+        <a href="{% url 'login' %}" class="btn cyan accent-4 waves-effect waves-dark hoverable z-depth-5">Log In</a>
+        {% endif %}
+</div>
+
 
 {% endblock %}
