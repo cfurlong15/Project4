@@ -11,17 +11,8 @@ body {
   
   footer.page-footer {
     padding-top: 1rem;
+    padding-top: 3rem;
     text-align: right;
   }
 
-  .btn {
-    border-radius: 5px;
-  }
-
-  .card {
-    border-radius: 10px;
-  }
-
-  .input-field {
-    background-color: white;
-  }
+ 
